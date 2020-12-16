@@ -1,16 +1,16 @@
 from django.shortcuts import render
 import requests
+from rest_framework import viewsets
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
+from .models import Task
+from .serializers import TaskSerializer
 
 # Create your views here.
-def home(request):
- response = requests.get('http://freegeoip.net/json')
- geodata = response.json()
- print(response)
- return None
+class TaskViewSet(viewsets.ModelViewSet):
+ #authentication_classes = (BasicAuthentication)
+ #permission_classes = (IsAuthenticated)
+ queryset = Task.objects.all()
+ serializer_class = TaskSerializer
 
-
-
-     #     render(request, 'core/home.html',{
-     #     'ip': geodata['ip'],
-     #     'country': geodata['country_name']
-     # })

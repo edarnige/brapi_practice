@@ -25,7 +25,10 @@ SECRET_KEY = 'dorc66yp@vpumpn-epw!axzke0$g-tq!zcn55f*+u#b=&co5bh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] #set to all with *, or local ip 127.0.0.1
+
+#enable cors headers
+CORS_ORIGIN_ALLOW_ALL = True #ajax, white list domain for more security
 
 
 # Application definition
@@ -37,12 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'brapp',
+    # added by me
+    'brapp', #my brapp
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #must go here
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
