@@ -23,5 +23,8 @@ services:
     volumes:
       - ./frontend/brapifront:/app
       #- /app/node_modules
+    #hot reload
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     ports:
       - "8080:8080"
