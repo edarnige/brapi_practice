@@ -3,7 +3,7 @@ import Router from "vue-router";
 
 // import App from "./App.vue"
 import Tasks from "./views/Tasks.vue";
-import Test from "./views/Test";
+import BrAPICalls from "./views/BrAPICalls.vue";
 
 Vue.use(Router);
 
@@ -20,9 +20,9 @@ export default new Router({
             components: {default: Tasks}
         },
         {
-            path: "/test",
-            name: "test",
-            components: {default: Test}
+            path: "/brapi/calls",
+            name: "brapicalls",
+            components: {default: BrAPICalls}
         },
 
     ]

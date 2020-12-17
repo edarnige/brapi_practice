@@ -1,16 +1,30 @@
 <template>
   <div>
-    <h1>bye</h1>
+
+    <h1>BrAPI calls</h1>
+
+    <div class="">
+      {{info}}
+    </div>
+
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: 'test',
+  name: 'brapicalls',
   data() {
     return{
-
+      info: null
     }
+  },
+  mounted(){
+    axios
+      .get('https://test-server.brapi.org/brapi/v2/commoncropnames')
+      .then(response => (this.info = response))
+
   }
 }
 </script>
