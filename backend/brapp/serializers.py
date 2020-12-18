@@ -1,8 +1,20 @@
 from rest_framework import serializers
 
-from .models import Task
+from . import models
 
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Task
+        model = models.Task
         fields = ('id','description', 'status')
+
+
+class Trial_TrialContactSerializer(serializers.ModelSerializer):
+    # name = serializers.CharField(source='contactDbId.name')
+    # instituteName = serializers.CharField(source='contactDbId.instituteName')
+    # email = serializers.CharField(source='contactDbId.email')
+    # type = serializers.CharField(source='contactDbId.type')
+    # orcid = serializers.CharField(source='contactDbId.orcid')
+
+    class Meta:
+        model = models.Contact
+        fields = ('contactDbId', 'name', 'instituteName', 'email', 'type', 'orcid')
