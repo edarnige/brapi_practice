@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'brapi_practice.wsgi.application'
 DATABASES = { # based on docker-compose.yaml
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'brapidb',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'db',
