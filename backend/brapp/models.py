@@ -38,3 +38,15 @@ class Crop(models.Model):
 
     def __str__(self):
         return '{}: {}'.format(self.pk, self.commonName)
+
+
+class Program(models.Model):
+    cropDbId = models.ForeignKey('Crop', on_delete=models.CASCADE, verbose_name=' cropDbId')
+    programDbId = models.TextField(primary_key=True, verbose_name=' programDbId')
+    name = models.TextField(verbose_name=' name')
+    abbreviation = models.TextField(blank=True, verbose_name=' abbreviation')
+    objective = models.TextField(blank=True, verbose_name=' objective')
+    leadPerson = models.TextField(blank=True, verbose_name=' leadPerson')
+
+    def __str__(self):
+        return '{}: {}'.format(self.pk, self.name)

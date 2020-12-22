@@ -17,16 +17,9 @@ from django.urls import path, include
 from django.conf.urls import include
 from django.contrib import admin
 
-from brapp.views import TaskViewSet, ContactViewSet
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register('tasks', TaskViewSet, basename="task")
-router.register('contacts', ContactViewSet, basename="contact")
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('', include('brapp.urls')),
     # path('', home, name='home'),
     # path('br/', include('brapp.urls')),
 ]

@@ -18,3 +18,10 @@ class Trial_TrialContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Contact
         fields = ('contactDbId', 'name', 'instituteName', 'email', 'type', 'orcid')
+
+
+class ProgramSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Program
+        safe = False
+        exclude = ('cropDbId',)
